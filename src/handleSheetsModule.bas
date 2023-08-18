@@ -4,7 +4,8 @@ Option Explicit
 Sub handleSheets()
 Dim file As Workbook
 Dim mallOption As Variant
-Dim i As Integer, i2 As Variant, i3 As Integer, i4 As Integer
+Dim i1 As Integer
+dim currentOption As Variant
 Dim r As Integer, c As Integer
 Dim mainWb As Workbook
 Dim nagil As String, eastindigo As String
@@ -29,13 +30,7 @@ While wb.Worksheets.Count < 2
 wb.Worksheets.Add after:=Worksheets(1)
 Wend
 
-
-
-Dim i5 As Integer
-
-i5 = mainWb.Worksheets(1).Cells(1, 1).CurrentRegion.Rows.Count
-
-i3 = 0
+i1 = 0
 r = wb.Worksheets(1).UsedRange.Rows.Count
 c = wb.Worksheets(1).UsedRange.Columns.Count
 
@@ -43,32 +38,31 @@ c = wb.Worksheets(1).UsedRange.Columns.Count
 '파일 안에서 조건에 맞는 열을 mainWb로 복사 붙여넣는다
 
 
-For Each i2 In mallOption
+For Each currentOption In mallOption
 
-wb.Worksheets(1).UsedRange.Find(i2, lookat:=xlWhole).Offset(1, 0).Resize(r - 1).Copy
-wb.Worksheets(2).Range("A1").Offset(0, i3).Resize(r - 1).PasteSpecial Paste:=xlPasteValuesAndNumberFormats
+wb.Worksheets(1).UsedRange.Find(currentOption, lookat:=xlWhole).Offset(1, 0).Resize(r - 1).Copy
+wb.Worksheets(2).Range("A1").Offset(0, i1).Resize(r - 1).PasteSpecial Paste:=xlPasteValuesAndNumberFormats
 
-i3 = i3 + 1
-Next i2
+i1 = i1 + 1
+Next currentOption
 
 With wb.Worksheets(2)
 If mall = "스스" Then
-Dim i7 As Integer
-For i7 = 1 To r
-If Right(.Cells(i7, 2).Value, 2) = " L" Then
-.Cells(i7, 3).Value = "L"
-.Cells(i7, 2).Replace " L", "", xlPart
+For i1 = 1 To r
+If Right(.Cells(i1, 2).Value, 2) = " L" Then
+.Cells(i1, 3).Value = "L"
+.Cells(i1, 2).Replace " L", "", xlPart
 End If
-If Right(.Cells(i7, 2).Value, 2) = " M" Then
-.Cells(i7, 3).Value = "M"
-.Cells(i7, 2).Replace " M", "", xlPart
+If Right(.Cells(i1, 2).Value, 2) = " M" Then
+.Cells(i1, 3).Value = "M"
+.Cells(i1, 2).Replace " M", "", xlPart
 End If
-If Right(.Cells(i7, 2).Value, 2) = "XL" Then
-.Cells(i7, 3).Value = "XL"
-.Cells(i7, 2).Replace " XL", "", xlPart
+If Right(.Cells(i1, 2).Value, 2) = "XL" Then
+.Cells(i1, 3).Value = "XL"
+.Cells(i1, 2).Replace " XL", "", xlPart
 
 End If
-Next i7
+Next i1
 End If
 End With
 
@@ -85,24 +79,24 @@ With wb.Worksheets(2)
 .Cells(1, 14).Resize(r - 1).Value = Date
 
 
-For i2 = 1 To r - 1
+For i1 = 1 To r - 1
 '주문번호에 주문날짜가 나와있지 않은 경우
 If Not mall = "w컨셉" And Not mall = "gvg" And Not mall = "아몬즈" And Not mall = "루앱" And Not mall = "무신사" Then
-.Cells(i2, 13).Value = 주문날짜(.Cells(i2, 1).Value, .Cells(i2, 9).Value)
-.Cells(i2, 13).NumberFormat = "yyyy-mm-dd"
+.Cells(i1, 13).Value = 주문날짜(.Cells(i1, 1).Value, .Cells(i1, 9).Value)
+.Cells(i1, 13).NumberFormat = "yyyy-mm-dd"
 Else
-.Cells(i2, 13).Value = Left(.Cells(i2, 13), 10)
+.Cells(i1, 13).Value = Left(.Cells(i1, 13), 10)
 End If
-Next i2
+Next i1
 
-For i2 = 1 To r - 1
+For i1 = 1 To r - 1
 If Not mall = "무신사" And Not mall = "29cm" And Not mall = "공홈" And Not mall = "스스" Then
-.Cells(i2, 15).Value = "eastindigo"
+.Cells(i1, 15).Value = "eastindigo"
 End If
 If mall = "스스" Then
-.Cells(i2, 15).Value = "craters"
+.Cells(i1, 15).Value = "craters"
 End If
-Next i2
+Next i1
 
 .UsedRange.Copy
 End With
@@ -130,11 +124,11 @@ End With
 
 Dim r2 As Integer, r3 As Integer, r4 As Integer
 
-i4 = mainWb.Worksheets(1).UsedRange.Rows.Count
+i1 = mainWb.Worksheets(1).UsedRange.Rows.Count
 c = mainWb.Worksheets(1).UsedRange.Columns.Count
 r3 = 2: r4 = 2
 
-For r2 = 2 To i4
+For r2 = 2 To i1
 
 mainWb.Worksheets(1).Cells(r2, 1).Resize(, 10).Copy
 

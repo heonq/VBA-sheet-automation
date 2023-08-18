@@ -15,12 +15,7 @@ eastindigo = ThisWorkbook.Path & "\이스트인디고 업로드 양식.xlsx"
 Set mainWb = Workbooks("배송시트 자동화.xlsm")
 
 
-With Application
-.DisplayAlerts = False
-.Calculation = xlCalculationManual
-.enableEvents = False
-.ScreenUpdating = False
-End With
+Call turnOffAlert
 
 For Each wb In Workbooks
 wb.Activate
@@ -175,11 +170,6 @@ Next r2
 Workbooks("(주)나길 업로드 양식.xlsx").Worksheets(1).Activate
 Call 옵션텍스트1
 
-With Application
-.DisplayAlerts = True
-.Calculation = xlCalculationAutomatic
-.enableEvents = True
-.ScreenUpdating = True
-End With
+Call turnOnAlert
 
 End Sub

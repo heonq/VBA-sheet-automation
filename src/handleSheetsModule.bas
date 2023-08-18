@@ -2,7 +2,7 @@ Attribute VB_Name = "handleSheetsModule"
 Option Explicit
 
 Sub handleSheets()
-Dim file As Workbook
+Dim wb As Workbook
 Dim mallOption As Variant
 Dim i1 As Integer
 dim currentOption As Variant

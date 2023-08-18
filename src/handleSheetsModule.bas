@@ -32,6 +32,7 @@ Set sheet = ActiveWorkbook.ActiveSheet
 
 
 Call selectMall(mall,option)
+If mall = "X" Then GoTo skip
 
 If mall = "29cm" Then
 With file.ActiveSheet.Range("AI:AI")

@@ -3,7 +3,7 @@ Option Explicit
 
 Sub handleSheets()
 Dim file As Workbook
-Dim option As Variant
+Dim mallOption As Variant
 Dim i As Integer, i2 As Variant, i3 As Integer, i4 As Integer
 Dim r As Integer, c As Integer
 Dim mainWb As Workbook
@@ -31,7 +31,7 @@ Set file = ActiveWorkbook
 Set sheet = ActiveWorkbook.ActiveSheet
 
 
-Call selectMall(mall,option)
+Call selectMall(mall,mallOption)
 If mall = "X" Then GoTo skip
 
 If mall = "29cm" Then
@@ -69,7 +69,7 @@ c = wb.Worksheets(1).UsedRange.Columns.Count
 '파일 안에서 조건에 맞는 열을 mainWb로 복사 붙여넣는다
 
 
-For Each i2 In option
+For Each i2 In mallOption
 
 wb.Worksheets(1).UsedRange.Find(i2, lookat:=xlWhole).Offset(1, 0).Resize(r - 1).Copy
 wb.Worksheets(2).Range("A1").Offset(0, i3).Resize(r - 1).PasteSpecial Paste:=xlPasteValuesAndNumberFormats

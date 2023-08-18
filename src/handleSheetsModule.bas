@@ -34,10 +34,6 @@ i1 = 0
 r = wb.Worksheets(1).UsedRange.Rows.Count
 c = wb.Worksheets(1).UsedRange.Columns.Count
 
-
-'파일 안에서 조건에 맞는 열을 mainWb로 복사 붙여넣는다
-
-
 For Each currentOption In mallOption
 
 wb.Worksheets(1).UsedRange.Find(currentOption, lookat:=xlWhole).Offset(1, 0).Resize(r - 1).Copy
@@ -65,10 +61,6 @@ End If
 Next i1
 End If
 End With
-
-'If mall = "무신사" Then
-'파일.Worksheets(2).Cells(1, 12).Resize(r - 1).Value = 파일.Worksheets(1).UsedRange.Find("업체", lookat:=xlWhole).Offset(1).Resize(r - 1).Value
-'End If
 
 With wb.Worksheets(2)
 .Columns(9).Insert shift:=xlToRight

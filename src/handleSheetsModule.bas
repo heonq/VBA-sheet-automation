@@ -1,4 +1,4 @@
-Attribute VB_Name = "AUTOMATE_VER1"
+Attribute VB_Name = "handleSheetsModule"
 Option Explicit
 
 Sub 배송판매취합()
@@ -11,16 +11,12 @@ Dim 매크로파일 As Workbook
 Dim 나길 As String, 판매데이터 As String, 이스트인디고 As String
 Dim 워크북 As Workbook
 Dim 입점사 As String
-Dim 복사위치 As Range
-Dim EC As Variant, EI As Variant
 Dim 나길파일 As Workbook, 이스턴캐주얼파일 As Workbook
-Dim pathdir As String, 당일나길 As String, 당일사무실 As String
-Dim 당일나길파일이름 As String
 
 나길 = ThisWorkbook.Path & "\(주)나길 업로드 양식.xlsx"
 이스트인디고 = ThisWorkbook.Path & "\이스트인디고 업로드 양식.xlsx"
 Set 매크로파일 = ThisWorkbook
-pathdir = ThisWorkbook.Path
+
 
 With Application
 .DisplayAlerts = False

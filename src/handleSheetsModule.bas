@@ -8,7 +8,6 @@ Dim i As Integer, i2 As Variant, i3 As Integer, i4 As Integer
 Dim r As Integer, c As Integer
 Dim mainWb As Workbook
 Dim nagil As String, eastindigo As String
-Dim wb As Workbook
 Dim mall As String
 
 nagil = ThisWorkbook.Path & "\(주)나길 업로드 양식.xlsx"
@@ -23,19 +22,14 @@ With Application
 .ScreenUpdating = False
 End With
 
-
-
 For Each wb In Workbooks
 wb.Activate
-Set file = ActiveWorkbook
-Set sheet = ActiveWorkbook.ActiveSheet
-
 
 Call selectMall(mall,mallOption)
 If mall = "X" Then GoTo skip
 
 If mall = "29cm" Then
-With file.ActiveSheet.Range("AI:AI")
+With wb.ActiveSheet.Range("AI:AI")
 .Replace "CRATERS", "craters", xlPart
 .Replace "_서오릉", "", xlPart
 .Replace " JEWELRY", "", xlPart

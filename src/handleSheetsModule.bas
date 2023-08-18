@@ -6,7 +6,7 @@ Dim wb As Workbook
 Dim mallOption As Variant
 Dim i1 As Integer
 dim currentOption As Variant
-Dim r As Integer, c As Integer
+Dim r As Integer
 Dim mainWb As Workbook
 Dim nagil As String, eastindigo As String
 Dim mall As String
@@ -32,7 +32,6 @@ Wend
 
 i1 = 0
 r = wb.Worksheets(1).UsedRange.Rows.Count
-c = wb.Worksheets(1).UsedRange.Columns.Count
 
 For Each currentOption In mallOption
 

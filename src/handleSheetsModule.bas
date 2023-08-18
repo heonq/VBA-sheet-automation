@@ -2,7 +2,7 @@ Attribute VB_Name = "handleSheetsModule"
 Option Explicit
 
 Sub handleSheets()
-Dim file As Workbook, sheet As Worksheet, cell As Range
+Dim file As Workbook
 Dim option As Variant
 Dim i As Integer, i2 As Variant, i3 As Integer, i4 As Integer
 Dim r As Integer, c As Integer
@@ -10,7 +10,6 @@ Dim mainWb As Workbook
 Dim nagil As String, eastindigo As String
 Dim wb As Workbook
 Dim mall As String
-Dim 나길파일 As Workbook, 이스턴캐주얼파일 As Workbook
 
 nagil = ThisWorkbook.Path & "\(주)나길 업로드 양식.xlsx"
 eastindigo = ThisWorkbook.Path & "\이스트인디고 업로드 양식.xlsx"

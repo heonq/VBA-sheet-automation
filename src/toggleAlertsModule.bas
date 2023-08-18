@@ -1,4 +1,4 @@
-Sub turnOnAlert()
+Sub turnOffAlert()
 
 With Application
 .DisplayAlerts = False
@@ -9,7 +9,7 @@ End With
 
 End Sub
 
-Sub turnOffAlert()
+Sub turnOnAlert()
 
 With Application
 .DisplayAlerts = True

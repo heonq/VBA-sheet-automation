@@ -43,26 +43,6 @@ i1 = i1 + 1
 Next currentOption
 
 With wb.Worksheets(2)
-If mall = "스스" Then
-For i1 = 1 To r
-If Right(.Cells(i1, 2).Value, 2) = " L" Then
-.Cells(i1, 3).Value = "L"
-.Cells(i1, 2).Replace " L", "", xlPart
-End If
-If Right(.Cells(i1, 2).Value, 2) = " M" Then
-.Cells(i1, 3).Value = "M"
-.Cells(i1, 2).Replace " M", "", xlPart
-End If
-If Right(.Cells(i1, 2).Value, 2) = "XL" Then
-.Cells(i1, 3).Value = "XL"
-.Cells(i1, 2).Replace " XL", "", xlPart
-
-End If
-Next i1
-End If
-End With
-
-With wb.Worksheets(2)
 .Columns(9).Insert shift:=xlToRight
 .Columns(12).Insert shift:=xlToRight
 .Columns(14).Insert shift:=xlToRight

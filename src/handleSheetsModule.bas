@@ -23,22 +23,7 @@ wb.Activate
 Call selectMall(mall,mallOption)
 If mall = "X" Then GoTo skip
 
-If mall = "29cm" Then
-With wb.ActiveSheet.Range("AI:AI")
-.Replace "CRATERS", "craters", xlPart
-.Replace "_서오릉", "", xlPart
-.Replace " JEWELRY", "", xlPart
-End With
-
-End If
-
-If mall = "루앱" Then
-wb.ActiveSheet.Range("T:T").Replace "(*)", "", xlPart
-wb.ActiveSheet.Range("G:G").Replace "(", "", xlPart
-wb.ActiveSheet.Range("G:G").Replace ")", "", xlPart
-wb.ActiveSheet.Rows(1).Resize(7).Delete
-End If
-
+Call handleMalls(mall)
 
 While wb.Worksheets.Count < 2
 wb.Worksheets.Add after:=Worksheets(1)

@@ -21,12 +21,12 @@ Select Case True
 Case .Name Like "*무신사*.xls": mallOption = musinsaOption: mall = "무신사"
 Case .Name Like "*스스*.xlsx": mallOption = smartStoreOption: mall = "스스"
 Case .Name Like "*크공홈*.xls*": mallOption = crtsMallOption: mall = "공홈"
-Case .Name Like "*이공홈*.xls*": mallOption = eiMallOption: mall = "공홈" : Call handle29cm
+Case .Name Like "*이공홈*.xls*": mallOption = eiMallOption: mall = "공홈"
 Case .Name Like "*29cm*.xls*": mallOption = twentynineOption: mall = "29cm"
 Case .Name Like "*컨셉*.xlsx": mallOption = wconceptOption: mall = "w컨셉"
 Case .Name Like "*하고*.xls*": mallOption = hagoOption: mall = "하고"
 Case .Name Like "*아몬즈*.xls*": mallOption = amondzOption: mall = "아몬즈"
-Case .Name Like "*루앱*.csv*": mallOption = luaebOption: mall = "루앱" : Call handleLuaeb
+Case .Name Like "*루앱*.csv*": mallOption = luaebOption: mall = "루앱"
 Case Else: mall = "X"
 End Select
 End With

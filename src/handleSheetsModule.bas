@@ -43,8 +43,7 @@ Next currentOption
 
 call addDateAndMallInfo(mall)
 
-.UsedRange.Copy
-End With
+activeSheet.UsedRange.Copy
 mainWb.Worksheets(1).Cells(Rows.Count, 1).End(xlUp).Offset(1).PasteSpecial Paste:=xlPasteValuesAndNumberFormats
 
 

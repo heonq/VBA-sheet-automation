@@ -7,15 +7,17 @@ Dim c As Integer
 dim productColumn as integer
 dim optionColumn as integer
 dim quantityColumn as integer
+dim startRow as integer
 
 productColumn = 5
 optionColumn = 6
 quantityColumn = 13
+startRow = 2
 
 Workbooks("(주)나길 업로드 양식.xlsx").Worksheets(1).Activate
 r = ActiveSheet.UsedRange.Rows.Count
 
-For i = 2 To r
+For i = startRow To r
 Cells(i, productColumn).Value = WorksheetFunction.TextJoin(" ", True, Cells(i, productColumn), Cells(i, optionColumn))
 Cells(i, optionColumn).Value = Cells(i, quantityColumn).Value
 Cells(i, quantityColumn).Value = ""

@@ -53,7 +53,6 @@ End With
 Dim r2 As Integer, r3 As Integer, r4 As Integer
 
 i1 = mainWb.Worksheets(1).UsedRange.Rows.Count
-c = mainWb.Worksheets(1).UsedRange.Columns.Count
 r3 = 2: r4 = 2
 
 For r2 = 2 To i1

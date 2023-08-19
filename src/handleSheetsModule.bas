@@ -30,25 +30,17 @@ call addDateAndMallInfo(mall)
 activeSheet.UsedRange.Copy
 mainWb.Worksheets(1).Cells(Rows.Count, 1).End(xlUp).Offset(1).PasteSpecial Paste:=xlPasteValuesAndNumberFormats
 
-
-'----------------------시트 정리해서 옮기기 까지 완료--------------------------------
 wb.Close
-
 
 skip:
 
 Next
 
-'배송시트 내용중 필요없는 내용 삭제
-
 Call replaceText
 
-'나길 업로드,이스트인디고 업로드 파일 열기
 With Application.Workbooks
 .Open (nagil): .Open (eastindigo)
 End With
-
-'취합한 내용을 배송시트에 필요한 부분만 나길 파일과 판매 데이터 파일에 붙여넣는다
 
 Call copyToUploadForm(mainWb)
 Call mergeOptionAndProductName

@@ -35,9 +35,14 @@ Dim r1 As Integer
 Dim productNameColumn As Integer
 Dim optionColumn As Integer
 Dim optionInProductName As String
+dim productNameHeader as String
+dim optionValueHeader as string
 
-productNameColumn = ActiveSheet.UsedRange.Find("옵션관리코드", lookat:=xlWhole).Column
-optionColumn = ActiveSheet.UsedRange.Find("옵션정보", lookat:=xlWhole).Column
+productNameHeader = "옵션관리코드"
+optionValueHeader = "옵션정보"
+
+productNameColumn = ActiveSheet.UsedRange.Find(productNameHeader, lookat:=xlWhole).Column
+optionColumn = ActiveSheet.UsedRange.Find(optionValueHeader, lookat:=xlWhole).Column
 
 With ActiveSheet
 .Rows(1).Delete

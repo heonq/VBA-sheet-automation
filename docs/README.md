@@ -49,7 +49,9 @@
 - 입점사 중 스마트스토어의 시트를 관리합니다.
 - 상품명에 포함되어 있는 옵션명을 분리해서 옵션 칸에 입력합니다.
 - 상품명은 옵션코드 정보를 가져오므로 그대로 사용하기 위해선 상품정보에서 옵션코드에 상품명 + 옵션을 입력하시면 됩니다.
-- 만약 옵션코드가 아닌 다른 칼럼의 정보를 가져오고 싶다면 selectMall sub에서 smartStoreOption에서 수정해주면 됩니다.
+- 만약 옵션코드가 아닌 다른 칼럼의 정보를 가져오고 싶다면 selectMall sub에서 smartStoreOption에서 수정하고 handleSmartStore의 productNameHeader에는 상품명에 해당하는 칼럼의 정보를 입력합니다.
+- 만약 옵션을 가져오는 칼럼도 다를 경우, optionValueHeader도 수정합니다.
+- 참조하는 상품명 칼럼의 정보, 옵션 칼럼의 정보는 seletMall sub와 handleSmartStore sub에서 동일해야 합니다.
 
 ## addMallAndDateInfo sub 사용법
 

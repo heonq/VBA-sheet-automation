@@ -1,10 +1,11 @@
 option Explicit
 
-Sub 옵션텍스트1()
+Sub mergeOptionAndProductName()
 
 Dim r As Integer, i As Integer
 Dim c As Integer
 
+Workbooks("(주)나길 업로드 양식.xlsx").Worksheets(1).Activate
 r = ActiveSheet.UsedRange.Rows.Count
 
 For i = 2 To r

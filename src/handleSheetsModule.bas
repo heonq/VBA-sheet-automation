@@ -51,10 +51,7 @@ End With
 '취합한 내용을 배송시트에 필요한 부분만 나길 파일과 판매 데이터 파일에 붙여넣는다
 
 Call copyToUploadForm(mainWb)
-
-Workbooks("(주)나길 업로드 양식.xlsx").Worksheets(1).Activate
-Call 옵션텍스트1
-
+Call mergeOptionAndProductName
 Call turnOnAlert
 
 End Sub

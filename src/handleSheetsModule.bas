@@ -5,7 +5,6 @@ Sub handleSheets()
 Dim wb As Workbook
 Dim mallOption As Variant
 Dim i1 As Integer
-dim currentOption As Variant
 Dim r As Integer
 Dim mainWb As Workbook
 Dim nagil As String, eastindigo As String
@@ -25,22 +24,7 @@ Call selectMall(mall,mallOption)
 If mall = "X" Then GoTo skip
 
 Call handleMalls(mall)
-
-While wb.Worksheets.Count < 2
-wb.Worksheets.Add after:=Worksheets(1)
-Wend
-
-i1 = 0
-r = wb.Worksheets(1).UsedRange.Rows.Count
-
-For Each currentOption In mallOption
-
-wb.Worksheets(1).UsedRange.Find(currentOption, lookat:=xlWhole).Offset(1, 0).Resize(r - 1).Copy
-wb.Worksheets(2).Range("A1").Offset(0, i1).Resize(r - 1).PasteSpecial Paste:=xlPasteValuesAndNumberFormats
-
-i1 = i1 + 1
-Next currentOption
-
+Call copyOrderInfo(mallOption, wb)
 call addDateAndMallInfo(mall)
 
 activeSheet.UsedRange.Copy

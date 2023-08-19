@@ -41,33 +41,7 @@ wb.Worksheets(2).Range("A1").Offset(0, i1).Resize(r - 1).PasteSpecial Paste:=xlP
 i1 = i1 + 1
 Next currentOption
 
-With wb.Worksheets(2)
-.Columns(9).Insert shift:=xlToRight
-.Columns(12).Insert shift:=xlToRight
-.Columns(14).Insert shift:=xlToRight
-.Cells(1, 9).Resize(r - 1).Value = mall
-.Cells(1, 14).Resize(r - 1).NumberFormat = "yyyy-mm-dd"
-.Cells(1, 14).Resize(r - 1).Value = Date
-
-
-For i1 = 1 To r - 1
-'주문번호에 주문날짜가 나와있지 않은 경우
-If Not mall = "w컨셉" And Not mall = "gvg" And Not mall = "아몬즈" And Not mall = "루앱" And Not mall = "무신사" Then
-.Cells(i1, 13).Value = 주문날짜(.Cells(i1, 1).Value, .Cells(i1, 9).Value)
-.Cells(i1, 13).NumberFormat = "yyyy-mm-dd"
-Else
-.Cells(i1, 13).Value = Left(.Cells(i1, 13), 10)
-End If
-Next i1
-
-For i1 = 1 To r - 1
-If Not mall = "무신사" And Not mall = "29cm" And Not mall = "공홈" And Not mall = "스스" Then
-.Cells(i1, 15).Value = "eastindigo"
-End If
-If mall = "스스" Then
-.Cells(i1, 15).Value = "craters"
-End If
-Next i1
+call addDateAndMallInfo(mall)
 
 .UsedRange.Copy
 End With

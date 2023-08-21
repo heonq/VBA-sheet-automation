@@ -27,7 +27,7 @@ Call handleMalls(mall)
 Call copyOrderInfo(mallOption, wb)
 call addDateAndMallInfo(mall,wb)
 
-activeSheet.UsedRange.Copy
+wb.Worksheets(2).UsedRange.Copy
 mainWb.Worksheets(1).Cells(Rows.Count, 1).End(xlUp).Offset(1).PasteSpecial Paste:=xlPasteValuesAndNumberFormats
 
 wb.Close

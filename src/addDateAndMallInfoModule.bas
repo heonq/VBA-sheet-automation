@@ -23,14 +23,12 @@ Else
 End If
 Next i1
 
-For i1 = 1 To rforFile
-If Not mall = "무신사" And Not mall = "29cm" And Not mall = "공홈" And Not mall = "스스" Then
-.Cells(i1, 15).Value = "eastindigo"
+If Not mall = "무신사" And Not mall = "29cm" And Not mall = "크공홈" And Not mall = "스스" Then
+.Cells(1, 15).resize(rforFile).Value = "eastindigo"
 End If
 If mall = "스스" Then
-.Cells(i1, 15).Value = "craters"
+.Cells(1, 15).resize(rforFile).Value = "craters"
 End If
-Next i1
 End With
 
 End Sub

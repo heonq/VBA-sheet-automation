@@ -1,9 +1,9 @@
-Sub addDateAndMallInfo(mall As String)
+Sub addDateAndMallInfo(mall As String, wb as Workbook)
 
 Dim rforFile As Integer, i1 As Integer
-rforFile = ActiveSheet.UsedRange.Rows.Count
+rforFile = wb.Worksheets(2).UsedRange.Rows.Count
 
-With ActiveSheet
+With wb.Worksheets(2)
 .Columns(9).Insert shift:=xlToRight
 .Columns(12).Insert shift:=xlToRight
 .Columns(14).Insert shift:=xlToRight
@@ -19,7 +19,7 @@ If Not mall = "w컨셉" And Not mall = "아몬즈" And Not mall = "루앱" And N
 .Cells(i1, 13).NumberFormat = "yyyy-mm-dd"
 '주문번호에 주문날짜가 나와있는 경우
 Else
-.Value = Left(.Cells(i1, 13), 10)
+.Cells(i1,13).Value = Left(.Cells(i1, 13), 10)
 End If
 Next i1
 

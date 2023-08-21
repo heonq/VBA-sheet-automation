@@ -25,7 +25,7 @@ If mall = "X" Then GoTo skip
 
 Call handleMalls(mall)
 Call copyOrderInfo(mallOption, wb)
-call addDateAndMallInfo(mall)
+call addDateAndMallInfo(mall,wb)
 
 activeSheet.UsedRange.Copy
 mainWb.Worksheets(1).Cells(Rows.Count, 1).End(xlUp).Offset(1).PasteSpecial Paste:=xlPasteValuesAndNumberFormats
